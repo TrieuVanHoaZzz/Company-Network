@@ -3,6 +3,16 @@
 ## 📖 Bối cảnh dự án (Project Overview)
 Dự án thiết kế và triển khai mô hình mạng với quy mô **600 nhân viên**. Tòa nhà gồm 3 tầng với 6 phòng ban chức năng khác nhau. Yêu cầu đặt ra là xây dựng một hệ thống mạng hoàn toàn mới, đảm bảo đáp ứng nhu cầu truy cập hiện tại, có tính dự phòng cao và sẵn sàng mở rộng trong tương lai.
 
+##  
+
+•	Tầng 1: Sales and Marketing- dự kiến 120 người dùng;  HR and Logistics - dự kiến 120 người dùng.
+
+•	Tầng 2: Finance and Account- dự kiến 120 người dùng; Admin and PR - dự kiến 120 người dùng.
+
+•	Tầng 3: ICT - dự kiến 120 người dùng; Server Room - dự kiến 12 thiết bị.
+
+##
+
 Công cụ mô phỏng: **Cisco Packet Tracer**
 
 ---
@@ -15,14 +25,9 @@ Công cụ mô phỏng: **Cisco Packet Tracer**
 
 ##  Phân bổ không gian & Thiết kế mạng phân cấp
 Mô hình tuân thủ kiến trúc phân cấp (Hierarchical Network Design) với các lớp:
-- **Core Layer:** 2 Router (CORE-R1, CORE-R2 - dòng 2911) kết nối định tuyến tốc độ cao và liên kết ra 2 Router ISP (IPS1, IPS2 - dòng 2811) qua các dải IP Public (`195.136.17.x/30`).
-- **Distribution Layer:** 2 Multilayer Switch L3 (dòng 3650-24PS) hoạt động định tuyến nội bộ, Inter-VLAN Routing và cung cấp Gateway dự phòng. Các switch này kết nối Point-to-Point với Core Router qua các dải IP từ `172.16.3.144/30` đến `172.16.3.156/30`.
-- **Access Layer:** Phân bổ tại 3 tầng (F1, F2, F3) với các Access Switch (dòng 2960) kết nối trực tiếp với thiết bị đầu cuối.
-
-**Chi tiết phòng ban và VLAN (dựa trên sơ đồ):**
-- **Tầng 1 (F1):** Phòng Sales & Marketing (VLAN 10) | Phòng HR & Logistics (VLAN 20)
-- **Tầng 2 (F2):** Phòng Finance & Accounting (VLAN 30) | Phòng Admin & PR (VLAN 40)
-- **Tầng 3 (F3):** Phòng IT (VLAN 50) | Phòng Server (VLAN 60)
+- **Core Layer:** 2 Router (CORE-R1, CORE-R2 - dòng 2911) kết nối định tuyến tốc độ cao và liên kết ra 2 Router qua các dải IP Public (`195.136.17.x/30`).
+- **Distribution Layer:** 2 Multilayer Switch L3 (3650-24PS) hoạt động định tuyến nội bộ, Inter-VLAN Routing và cung cấp Gateway dự phòng. Các switch này kết nối Point-to-Point với Core Router qua các dải IP từ `172.16.3.144/30` đến `172.16.3.156/30`.
+- **Access Layer:** Phân bổ tại 3 tầng (F1, F2, F3) với các Access Switch (2960) kết nối trực tiếp với thiết bị đầu cuối.
 
 ---
 
